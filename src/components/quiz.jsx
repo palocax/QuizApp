@@ -67,7 +67,7 @@ function Quiz(){
         <p className="question">{questionBank[currentQuestion].question}</p>
 
         {questionBank[currentQuestion].options.map((option)=>(
-                <button className={"option" +(selectedAnswer===option?" selected":"")} 
+                <button key={option} className={"option" +(selectedAnswer===option?" selected":"")} 
                     onClick={()=>handleSelectOption(option)}
                 >
                     {option}
