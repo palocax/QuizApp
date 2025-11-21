@@ -1,4 +1,4 @@
-import { pasResultsCollectionRef } from "../config/firebase-config";
+import { auth, pasResultsCollectionRef } from "../config/firebase-config";
 import { addDoc } from "firebase/firestore";
 import { Timestamp } from "firebase/firestore";
 
@@ -26,6 +26,7 @@ function Results({questionBank, userAnswers, restartQuiz}){
                 Results: finalScoreString,
                 date: today, 
                 userAnswers: userAnswers,
+                userID: auth?.currentUser?.uid,
             });
         }catch(err){
             console.error(err);
